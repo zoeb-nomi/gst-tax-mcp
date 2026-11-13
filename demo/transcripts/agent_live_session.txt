@@ -1,0 +1,84 @@
+[agent] -> gst_applicability({"profile": "fixtures/priya_pickles/profile.json"})
+[agent] -> reconcile_itc_tool({"books": "fixtures/priya_pickles/books_purchases_q2_2026.json", "gstr2b": "fixtures/priya_pickles/gstr2b_q2_2026.json"})
+[agent] -> gstr1_summary_tool({"invoices": "fixtures/priya_pickles/outward_invoices_q2_2026.json"})
+[agent] -> itr_turnover_reconcile_tool({"gstr3b_turnover": 4180000, "itr_gross_receipts": 4410000, "itr_presumptive_scheme": "44AD"})
+[agent] -> itr_advance_tax_estimate_tool({"annual_income_projection": 1650000, "regime": "new"})
+[tools/ToolMessage] [{"type": "text", "text": "{\n  \"summary\": {\n    \"books_itc_total\": 7260.0,\n    \"gstr2b_itc_total\": 5340.0,\n    \"matched_count\": 2,\n    \"mismatched_count\": 1,\n    \"only_in_books_count\": 1,\n    \"only_in_2b_count\": 0,\n    \"claimable_itc\": 1620.0,\n    \"blocked_itc\": 1080.0,\n    \"recommendation\": \"Resolve mismatches before filing GSTR-3B: claim only the matched plus in-2B
+[tools/ToolMessage] [{"type": "text", "text": "{\n  \"annual_income\": 1650000.0,\n  \"regime\": \"new\",\n  \"annual_tax\": 120900.0,\n  \"instalments\": [\n    {\n      \"instalment\": \"by 15 June\",\n      \"cumulative_share\": 0.15,\n      \"cumulative_amount\": 18135.0\n    },\n    {\n      \"instalment\": \"by 15 September\",\n      \"cumulative_share\": 0.45,\n      \"cumulative_amount\": 54405.0\n    },\n   
+[tools/ToolMessage] [{"type": "text", "text": "{\n  \"tables\": {\n    \"12 HSN summary\": {\n      \"count\": 0,\n      \"taxable_value\": 715600.0,\n      \"cgst\": 2752.5,\n      \"sgst\": 2752.5,\n      \"igst\": 21275.0,\n      \"cess\": 0.0\n    },\n    \"4A/4B/4C/6B B2B\": {\n      \"count\": 3,\n      \"taxable_value\": 160500.0,\n      \"cgst\": 2137.5,\n      \"sgst\": 2137.5,\n      \"igst\": 3750.0,\n    
+[tools/ToolMessage] [{"type": "text", "text": "{\n  \"gstr3b_turnover\": 4180000.0,\n  \"itr_gross_receipts\": 4410000.0,\n  \"difference\": 230000.0,\n  \"difference_pct\": 5.5,\n  \"in_sync\": false,\n  \"flags\": [\n    \"Turnover differs by 5.5% (Rs 230,000); the ITC reconciliation statement expects ITR >= GSTR turnover and flags variances beyond ~5%\",\n    \"ITR turnover higher than GST turnover: GST-registered
+[tools/ToolMessage] [{"type": "text", "text": "{\n  \"needs_registration\": true,\n  \"threshold_goods\": 4000000,\n  \"threshold_services\": 2000000,\n  \"special_category_state\": false,\n  \"reasons\": [\n    \"Inter-state supply of goods makes registration compulsory at any turnover\",\n    \"Goods turnover Rs 4,200,000 exceeds the normal-category threshold of Rs 4,000,000\",\n    \"State 27 is a normal-category 
+[agent] -> gst_filing_deadlines({"filer_type": "qrdp", "period": "2026-Q2", "state_code": "27"})
+[agent] -> calc_gst_liability({"invoice": "{\"lines\": [{\"description\": \"Freight charges - reverse charge\", \"hsn_sac\": \"996411\", \"quantity\": 1, \"unit_price\": 8000, \"place_of_sup)
+[agent] -> validate_einvoice_tool({"einvoice": "fixtures/priya_pickles/einvoice_meridian.json", "supplier_ato": 4200000})
+[tools/ToolMessage] [{"type": "text", "text": "{\n  \"valid\": true,\n  \"errors\": [],\n  \"warnings\": [],\n  \"hsn_digits_required\": 4,\n  \"checked_fields\": 7\n}", "id": "lc_79a48cf7-579b-428d-b269-10d25b27180a"}]
+[tools/ToolMessage] [{"type": "text", "text": "{\n  \"lines\": [\n    {\n      \"line\": \"Freight charges - reverse charge\",\n      \"hsn_sac\": \"996411\",\n      \"rate_row\": \"Goods transport (GTA, RCM for most recipients)\",\n      \"effective_from\": \"2017-07-01\",\n      \"taxable_value\": 8000.0,\n      \"rate_pct\": 5.0,\n      \"cess_pct\": 0.0,\n      \"supply_type\": \"intra-state (CGST+SGST)\",\n     
+[tools/ToolMessage] [{"type": "text", "text": "{\n  \"period\": \"2026-Q2\",\n  \"filer_type\": \"qrdp\",\n  \"state_code\": \"27\",\n  \"deadlines\": [\n    {\n      \"form\": \"GSTR-1\",\n      \"period\": \"2026-Q2\",\n      \"due_date\": \"2026-10-13\",\n      \"rule\": \"Outward supplies statement, monthly filer\",\n      \"override\": null\n    },\n    {\n      \"form\": \"GSTR-3B\",\n      \"period\": \"2026-Q
+[agent] All checks are complete. Here is the full session summary for Priya Pickles.
+
+## Session Overview — Priya Pickles, Q2 FY 2026-27 (Jul–Sep 2026)
+
+**Registration & scheme (gst_applicability):**
+- Registration required: inter-state supply of goods makes it compulsory at any turnover, and goods turnover Rs 4,200,000 exceeds the Rs 4,000,000 normal-category threshold (State 27, Maharashtra).
+- Composition scheme: **not eligible** — composition suppliers cannot make inter-state supply of goods (limit would have been Rs 15,000,000).
+- E-invoicing not mandatory (threshold Rs 50,000,000), but the Meridian e-invoice was validated anyway — see below.
+- Recommended filer type: **QRDP** — used for the deadlines call.
+
+**Reverse-charge freight invoice (calc_gst_liability):**
+- SAC 996411 (GTA), taxable value Rs 8,000, intra-state, rate 5%.
+- Tax on the supplier's invoice: Rs 0. **RCM liability payable by the client: Rs 400.**
+
+**E-invoice validation (validate_einvoice_tool):**
+- **Valid** — no errors, no warnings. 7 mandatory fields checked; 4-digit HSN required and satisfied.
+
+---
+
+# FILING PACK
+
+## 1. Liability due (GSTR-3B)
+| Head | Amount (Rs) |
+|---|---|
+| CGST (outward) | 2,752.50 |
+| SGST (outward) | 2,752.50 |
+| IGST (outward) | 20,475.00 |
+| Cess | 0.00 |
+| **Total outward tax** | **25,980.00** |
+| RCM liability (freight, SAC 996411) | 400.00 |
+
+## 2. ITC position (books vs GSTR-2B)
+- Books ITC total: **Rs 7,260.00** | GSTR-2B total: **Rs 5,340.00**
+- **Claimable ITC now: Rs 1,620.00** (Metro Office Supplies PI-2026-131, matched)
+- **Blocked ITC: Rs 1,080.00** — Annapurna Caterers PI-2026-133 (staff event food & beverages, blocked under section 17(5)(b) unless used for further supply). Do not claim.
+- **Mismatch: Rs 240.00** — Bharuch Glass & Jars PI-2026-118: books Rs 2,400 vs 2B Rs 2,640. Resolve with the supplier before claiming the difference.
+- **In books, missing from 2B: Rs 2,160.00** — Metro Office Supplies PI-2026-137 (11-Sep-2026). Follow up with the supplier; it should appear in a later 2B period.
+
+## 3. GSTR-1 totals (net of credit notes)
+| Table | Count | Taxable value (Rs) | CGST | SGST | IGST |
+|---|---|---|---|---|---|
+| 4A/4B/4C/6B B2B | 3 | 160,500.00 | 2,137.50 | 2,137.50 | 3,750.00 |
+| 5A B2C large (inter-state > 2.5L) | 1 | 320,000.00 | 0 | 0 | 16,000.00 |
+| 6A Exports | 1 | 180,000.00 | 0 | 0 | 0 |
+| 6B/6C Credit/debit notes (registered) | 1 | −8,000.00 | 0 | 0 | −400.00 |
+| 7 B2C others | 3 | 47,100.00 | 615.00 | 615.00 | 1,125.00 |
+| **Total (excl. HSN memo)** | **9** | **699,600.00** | **2,752.50** | **2,752.50** | **20,475.00** |
+
+HSN memo (Table 12): taxable value Rs 715,600.00; CGST 2,752.50; SGST 2,752.50; IGST 21,275.00 — memo only, not added to totals. Verify against books before filing.
+
+## 4. Deadlines (QRDP filer, State 27)
+| Form | Due date |
+|---|---|
+| GSTR-1 | **13 October 2026** |
+| GSTR-3B | **22 October 2026** |
+| PMT-06 (tax payment challan) | **25 October 2026** |
+
+## 5. Flags to fix before filing
+1. **Blocked credit Rs 1,080** (Annapurna Caterers, staff event F&B) — exclude from ITC claim.
+2. **ITC mismatch Rs 240** (Bharuch Glass & Jars) — reconcile with supplier; claim only after resolution.
+3. **Rs 2,160 ITC missing from 2B** (Metro Office Supplies PI-2026-137) — chase supplier; claim in the period it appears in 2B.
+4. **Pay RCM Rs 400** on the freight invoice (self-invoice, pay via PMT-06/electronic cash ledger) — due before filing GSTR-3B.
+5. **Verify the HSN memo** against books before filing GSTR-1.
+
+## 6. ITR crossover notes
+- **Turnover reconciliation: NOT in sync.** GSTR-3B turnover Rs 4,180,000 vs ITR gross receipts Rs 4,410,000 — difference Rs 230,000 (**5.5%**, above the ~5% tolerance). ITR is higher than GST turnover: check whether GST-registered supplies are missing from returns, or whether exempt/nil-rate receipts explain the gap. Resolve before filing the ITR.
+- **Advance tax estimate FY 2026-27 (projected income Rs 1,650,000, new regime):** annual tax **Rs 120,900**. Instalments: 15 Jun Rs 18,135 → 15 Sep Rs 54,405 (cumulative) → 15 Dec Rs 90,675 (cumulative) → 15 Mar Rs 120,900 (full).
+- **Regime comparison:** new regime Rs 120,900 vs old regime Rs 304,200 — **new regime recommended**.

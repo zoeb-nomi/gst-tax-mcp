@@ -1,0 +1,709 @@
+{
+  "summary": {
+    "passed": 47,
+    "total": 47,
+    "score": 1.0,
+    "by_category": {
+      "einvoice_hsn": {
+        "passed": 3,
+        "total": 3
+      },
+      "filing_deadlines": {
+        "passed": 7,
+        "total": 7
+      },
+      "gstr1_tables": {
+        "passed": 1,
+        "total": 1
+      },
+      "itc_blocked": {
+        "passed": 3,
+        "total": 3
+      },
+      "itr_presumptive_tax": {
+        "passed": 5,
+        "total": 5
+      },
+      "rate_lookup": {
+        "passed": 7,
+        "total": 7
+      },
+      "registration_composition": {
+        "passed": 8,
+        "total": 8
+      },
+      "reverse_charge": {
+        "passed": 2,
+        "total": 2
+      },
+      "services_composition": {
+        "passed": 7,
+        "total": 7
+      },
+      "tax_split_liability": {
+        "passed": 4,
+        "total": 4
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "REG-01",
+      "category": "registration_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "needs_registration": true
+      },
+      "tool_output": {
+        "needs_registration": true
+      },
+      "pass": true,
+      "source": "Notification 10/2019-CT (exemption for exclusive suppliers of goods up to Rs 40 lakh) - https://www.gstcouncil.gov.in/sites/default/files/2024-05/notfctn-10-central-tax-english-2019.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "REG-02",
+      "category": "registration_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "needs_registration": true
+      },
+      "tool_output": {
+        "needs_registration": true
+      },
+      "pass": true,
+      "source": "Notification 10/2019-CT excludes intra-State suppliers in Telangana (and 9 other States/UTs) from the Rs 40 lakh limit, so the Rs 20 lakh goods limit applies - https://www.gstcouncil.gov.in/sites/default/files/2024-05/notfctn-10-central-tax-english-2019.pdf ; CBIC 'GST - An Update' (1 Apr 2019) lists the 10 States at Rs 20 lakh - https://cbic-gst.gov.in/pdf/01042019_GST-An-Update.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "REG-03",
+      "category": "registration_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "needs_registration": false
+      },
+      "tool_output": {
+        "needs_registration": false
+      },
+      "pass": true,
+      "source": "Manipur is one of the ten States with a Rs 20 lakh goods threshold (not Rs 10 lakh) - CBIC 'GST - An Update' https://cbic-gst.gov.in/pdf/01042019_GST-An-Update.pdf ; Notification 10/2019-CT https://www.gstcouncil.gov.in/sites/default/files/2024-05/notfctn-10-central-tax-english-2019.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "REG-04",
+      "category": "registration_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "needs_registration": false
+      },
+      "tool_output": {
+        "needs_registration": false
+      },
+      "pass": true,
+      "source": "Assam is not among the ten States excluded by Notification 10/2019-CT, so the general Rs 40 lakh goods threshold applies - https://www.gstcouncil.gov.in/sites/default/files/2024-05/notfctn-10-central-tax-english-2019.pdf ; CBIC 'GST - An Update' https://cbic-gst.gov.in/pdf/01042019_GST-An-Update.pdf",
+      "confidence": "medium"
+    },
+    {
+      "id": "REG-05",
+      "category": "registration_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "needs_registration": false
+      },
+      "tool_output": {
+        "needs_registration": false
+      },
+      "pass": true,
+      "source": "Services threshold is Rs 20 lakh; Rs 10 lakh applies only in Manipur, Mizoram, Nagaland and Tripura - CBIC 'GST - An Update' (1 Apr 2019) https://cbic-gst.gov.in/pdf/01042019_GST-An-Update.pdf",
+      "confidence": "medium"
+    },
+    {
+      "id": "REG-06",
+      "category": "registration_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "needs_registration": true
+      },
+      "tool_output": {
+        "needs_registration": true
+      },
+      "pass": true,
+      "source": "CGST Act s.24(i): inter-State taxable supply requires registration irrespective of turnover; the only turnover-based inter-State relief is for services (Notification 10/2017-IT) and notified handicrafts (Notification 3/2018-IT) - https://taxguru.in/?p=1029615 ; https://cbic-gst.gov.in/pdf/01042019_GST-An-Update.pdf",
+      "confidence": "medium"
+    },
+    {
+      "id": "REG-07",
+      "category": "registration_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_eligible": true
+      },
+      "tool_output": {
+        "composition_eligible": true
+      },
+      "pass": true,
+      "source": "Composition turnover limit Rs 1.5 crore (Rs 75 lakh in 8 listed States), Notification 14/2019-CT - https://www.gstcouncil.gov.in/sites/default/files/2024-05/notfctn-14-central-tax-english-2019.pdf ; CGST Act s.10(2) - https://www.cggst.com/uploads/document/1752317902-section-10.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "REG-08",
+      "category": "registration_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_eligible": false
+      },
+      "tool_output": {
+        "composition_eligible": false
+      },
+      "pass": true,
+      "source": "Notification 14/2019-CT limits composition to Rs 75 lakh for Arunachal Pradesh, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, Tripura and Uttarakhand - https://www.gstcouncil.gov.in/sites/default/files/2024-05/notfctn-14-central-tax-english-2019.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "EINV-01",
+      "category": "einvoice_hsn",
+      "tool": "gst_applicability",
+      "expected": {
+        "einvoice_mandatory": true
+      },
+      "tool_output": {
+        "einvoice_mandatory": true
+      },
+      "pass": true,
+      "source": "Notification 10/2023-CT: e-invoicing applies where aggregate turnover exceeds Rs 5 crore in any preceding FY from 2017-18, effective 1 Aug 2023 - https://www.ey.com/en_in/technical/alerts-hub/2023/05/cbic-lowers-turnover-threshold-for-e-invoicing-to-inr5-crores-with-effect-from-1-august-2023",
+      "confidence": "high"
+    },
+    {
+      "id": "EINV-02",
+      "category": "einvoice_hsn",
+      "tool": "gst_applicability",
+      "expected": {
+        "einvoice_mandatory": false
+      },
+      "tool_output": {
+        "einvoice_mandatory": false
+      },
+      "pass": true,
+      "source": "Notification 10/2023-CT applies only where turnover EXCEEDS Rs 5 crore - https://www.ey.com/en_in/technical/alerts-hub/2023/05/cbic-lowers-turnover-threshold-for-e-invoicing-to-inr5-crores-with-effect-from-1-august-2023",
+      "confidence": "high"
+    },
+    {
+      "id": "EINV-03",
+      "category": "einvoice_hsn",
+      "tool": "validate_einvoice_tool",
+      "expected": {
+        "hsn_digits_required": 6
+      },
+      "tool_output": {
+        "hsn_digits_required": 6
+      },
+      "pass": true,
+      "source": "Notification 78/2020-CT as explained in the PIB release of 2021: 6-digit HSN above Rs 5 crore, 4-digit up to Rs 5 crore, from 1 Apr 2021 - https://pib.gov.in/PressReleasePage.aspx?PRID=1708713",
+      "confidence": "high"
+    },
+    {
+      "id": "RATE-01",
+      "category": "rate_lookup",
+      "tool": "classify_hsn_sac",
+      "expected": {
+        "rate": 28.0
+      },
+      "tool_output": {
+        "rate": 28.0
+      },
+      "pass": true,
+      "source": "Cement was 28% until the 56th Council changes took effect on 22 Sep 2025 - PIB https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/sep/doc202594628401.pdf (cement 28% to 18%)",
+      "confidence": "high"
+    },
+    {
+      "id": "RATE-02",
+      "category": "rate_lookup",
+      "tool": "classify_hsn_sac",
+      "expected": {
+        "rate": 18.0
+      },
+      "tool_output": {
+        "rate": 18.0
+      },
+      "pass": true,
+      "source": "Notification 9/2025-CT(Rate), Schedule II (9% CGST) via CBIC ready reckoner - https://a2ztaxcorp.net/wp-content/uploads/2025/09/CBIC-GST-Ready-Reckoner-indicating-updated-Central-Goods-and-Services-Tax-CGST-rates-on-goods.pdf ; PIB https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/sep/doc202594628401.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "RATE-03",
+      "category": "rate_lookup",
+      "tool": "classify_hsn_sac",
+      "expected": {
+        "rate": 5.0
+      },
+      "tool_output": {
+        "rate": 5.0
+      },
+      "pass": true,
+      "source": "Notification 9/2025-CT(Rate), Schedule I S.No.251 (2.5% CGST, toilet soap in bars) - CBIC ready reckoner https://a2ztaxcorp.net/wp-content/uploads/2025/09/CBIC-GST-Ready-Reckoner-indicating-updated-Central-Goods-and-Services-Tax-CGST-rates-on-goods.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "RATE-04",
+      "category": "rate_lookup",
+      "tool": "classify_hsn_sac",
+      "expected": {
+        "rate": 5.0
+      },
+      "tool_output": {
+        "rate": 5.0
+      },
+      "pass": true,
+      "source": "Notification 9/2025-CT(Rate), Schedule I S.No.48: rice only when pre-packaged and labelled, 2.5% CGST - CBIC ready reckoner https://a2ztaxcorp.net/wp-content/uploads/2025/09/CBIC-GST-Ready-Reckoner-indicating-updated-Central-Goods-and-Services-Tax-CGST-rates-on-goods.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "RATE-05",
+      "category": "rate_lookup",
+      "tool": "classify_hsn_sac",
+      "expected": {
+        "rate": 5.0
+      },
+      "tool_output": {
+        "rate": 5.0
+      },
+      "pass": true,
+      "source": "Notification 9/2025-CT(Rate), Schedule I S.No.129 (heading 2005), 2.5% CGST - CBIC ready reckoner https://a2ztaxcorp.net/wp-content/uploads/2025/09/CBIC-GST-Ready-Reckoner-indicating-updated-Central-Goods-and-Services-Tax-CGST-rates-on-goods.pdf",
+      "confidence": "medium"
+    },
+    {
+      "id": "RATE-06",
+      "category": "rate_lookup",
+      "tool": "classify_hsn_sac",
+      "expected": {
+        "rate": 40.0
+      },
+      "tool_output": {
+        "rate": 40.0
+      },
+      "pass": true,
+      "source": "Notification 9/2025-CT(Rate), Schedule III S.No.5 (heading 8703 other cars, 20% CGST = 40%); compensation cess on motor vehicles reduced to nil - CBIC ready reckoner https://a2ztaxcorp.net/wp-content/uploads/2025/09/CBIC-GST-Ready-Reckoner-indicating-updated-Central-Goods-and-Services-Tax-CGST-rates-on-goods.pdf ; PIB https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/sep/doc202594628401.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "RATE-07",
+      "category": "rate_lookup",
+      "tool": "classify_hsn_sac",
+      "expected": {
+        "rate": 40.0
+      },
+      "tool_output": {
+        "rate": 40.0
+      },
+      "pass": true,
+      "source": "From 1 Feb 2026 GST on cigarettes is 40% and compensation cess is nil (Notification 19/2025-CT(Rate); Compensation Cess (Rate) 03/2025) - https://www.livelaw.in/amp/tax-cases/new-rsp-based-valuation-mechanism-40-gst-rate-on-pan-masala-cigarettes-cigars-tobacco-products-from-february-01-516688",
+      "confidence": "medium"
+    },
+    {
+      "id": "LIAB-01",
+      "category": "tax_split_liability",
+      "tool": "calc_gst_liability",
+      "expected": {
+        "cgst": 9000.0
+      },
+      "tool_output": {
+        "cgst": 9000.0
+      },
+      "pass": true,
+      "source": "Cement is 18% from 22 Sep 2025 (Notification 9/2025-CT(Rate), Sch II); intra-State supply splits equally into CGST 9% and SGST 9% (CGST Act s.9, SGST Act) - https://a2ztaxcorp.net/wp-content/uploads/2025/09/CBIC-GST-Ready-Reckoner-indicating-updated-Central-Goods-and-Services-Tax-CGST-rates-on-goods.pdf ; https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/sep/doc202594628401.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "LIAB-02",
+      "category": "tax_split_liability",
+      "tool": "calc_gst_liability",
+      "expected": {
+        "igst": 18000.0
+      },
+      "tool_output": {
+        "igst": 18000.0
+      },
+      "pass": true,
+      "source": "Inter-State supply attracts IGST at the full 18% (IGST Act s.5; Notification 9/2025-IT(Rate)) - https://a2ztaxcorp.net/wp-content/uploads/2025/09/CBIC-GST-Ready-Reckoner-indicating-updated-Central-Goods-and-Services-Tax-CGST-rates-on-goods.pdf ; https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/sep/doc202594628401.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "LIAB-03",
+      "category": "tax_split_liability",
+      "tool": "calc_gst_liability",
+      "expected": {
+        "igst": 43200.0
+      },
+      "tool_output": {
+        "igst": 43200.0
+      },
+      "pass": true,
+      "source": "Value excludes a discount recorded on the invoice (CGST Act s.15(3)(a)) so taxable value is Rs 2,40,000; laptops 18% (Sch II S.No.456) - https://www.cggst.com/uploads/document/1756722144-section-15.pdf ; https://a2ztaxcorp.net/wp-content/uploads/2025/09/CBIC-GST-Ready-Reckoner-indicating-updated-Central-Goods-and-Services-Tax-CGST-rates-on-goods.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "LIAB-04",
+      "category": "tax_split_liability",
+      "tool": "calc_gst_liability",
+      "expected": {
+        "total_tax": 28000.0
+      },
+      "tool_output": {
+        "total_tax": 28000.0
+      },
+      "pass": true,
+      "source": "Before 22 Sep 2025 motorcycles up to 350 cc were 28% GST; compensation cess (3%) applied only above 350 cc, nil at or below - Compensation Cess (Rate) Notification 1/2017 S.No.53 https://taxindiaonline.com/RC2/pdfnoti/gst/cess_rate/2017/cess_rate_01.pdf ; PIB https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/sep/doc202594628401.pdf (28% to 18%)",
+      "confidence": "high"
+    },
+    {
+      "id": "RCM-01",
+      "category": "reverse_charge",
+      "tool": "calc_gst_liability",
+      "expected": {
+        "rcm_liability": 18000.0
+      },
+      "tool_output": {
+        "rcm_liability": 18000.0
+      },
+      "pass": true,
+      "source": "Notification 13/2017-CT(Rate) Sl.2: services by an advocate to a business entity are taxed on reverse charge, recipient pays - https://gstcouncil.gov.in/sites/default/files/2024-05/download_8_0.pdf ; legal services SAC 9982 at 18% - https://cleartax.in/s/legal-services-gst-rates-sac-code-9982",
+      "confidence": "high"
+    },
+    {
+      "id": "RCM-02",
+      "category": "reverse_charge",
+      "tool": "calc_gst_liability",
+      "expected": {
+        "rcm_liability": 2500.0
+      },
+      "tool_output": {
+        "rcm_liability": 2500.0
+      },
+      "pass": true,
+      "source": "Notification 13/2017-CT(Rate) Sl.1: GTA road goods transport, recipient pays under reverse charge - https://gstcouncil.gov.in/sites/default/files/2024-05/download_8_0.pdf ; GTA 5% without ITC (18% with ITC option from 22 Sep 2025) - https://lakshmisri.com/newsroom/news-briefings/impact-of-gst-rate-changes-on-the-logistic-sector",
+      "confidence": "high"
+    },
+    {
+      "id": "ITC-01",
+      "category": "itc_blocked",
+      "tool": "reconcile_itc_tool",
+      "expected": {
+        "claimable_itc": 0.0
+      },
+      "tool_output": {
+        "claimable_itc": 0
+      },
+      "pass": true,
+      "source": "CGST Act s.17(5)(a): ITC blocked on motor vehicles for transport of persons with seating capacity of 13 or fewer, except further supply, passenger transport or driving training - https://www.cggst.com/uploads/document/1753685259-section-17.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "ITC-02",
+      "category": "itc_blocked",
+      "tool": "reconcile_itc_tool",
+      "expected": {
+        "claimable_itc": 280000.0
+      },
+      "tool_output": {
+        "claimable_itc": 280000.0
+      },
+      "pass": true,
+      "source": "CGST Act s.17(5)(a) blocks only vehicles for transport of persons (13 seats or fewer); goods vehicles are outside the block - https://www.cggst.com/uploads/document/1753685259-section-17.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "ITC-03",
+      "category": "itc_blocked",
+      "tool": "reconcile_itc_tool",
+      "expected": {
+        "claimable_itc": 0.0
+      },
+      "tool_output": {
+        "claimable_itc": 0
+      },
+      "pass": true,
+      "source": "CGST Act s.17(5)(b)(i): ITC blocked on food and beverages and outdoor catering unless used for outward supply of the same category or obligatory under law - https://www.cggst.com/uploads/document/1753685259-section-17.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "DL-01",
+      "category": "filing_deadlines",
+      "tool": "gst_filing_deadlines",
+      "expected": {
+        "gstr3b_due": "2026-11-20"
+      },
+      "tool_output": {
+        "gstr3b_due": "2026-11-20"
+      },
+      "pass": true,
+      "source": "CGST Rules r.61(1)(i): monthly GSTR-3B by the 20th of the following month - https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+      "confidence": "high"
+    },
+    {
+      "id": "DL-02",
+      "category": "filing_deadlines",
+      "tool": "gst_filing_deadlines",
+      "expected": {
+        "gstr1_due": "2026-07-13"
+      },
+      "tool_output": {
+        "gstr1_due": "2026-07-13"
+      },
+      "pass": true,
+      "source": "Notification 83/2020-CT: quarterly GSTR-1 by the 13th of the month after the quarter - https://gstgyaan.com/section-37-furnishing-details-of-outward-supplies-in-gstr-1 ; r.59 - https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule59_v1.00.html",
+      "confidence": "high"
+    },
+    {
+      "id": "DL-03",
+      "category": "filing_deadlines",
+      "tool": "gst_filing_deadlines",
+      "expected": {
+        "gstr3b_due": "2026-07-22"
+      },
+      "tool_output": {
+        "gstr3b_due": "2026-07-22"
+      },
+      "pass": true,
+      "source": "CGST Rules r.61(1)(ii) Table Sl.1: Maharashtra and listed States - 22nd day of the month after the quarter - https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+      "confidence": "high"
+    },
+    {
+      "id": "DL-04",
+      "category": "filing_deadlines",
+      "tool": "gst_filing_deadlines",
+      "expected": {
+        "gstr3b_due": "2026-07-24"
+      },
+      "tool_output": {
+        "gstr3b_due": "2026-07-24"
+      },
+      "pass": true,
+      "source": "CGST Rules r.61(1)(ii) Table Sl.2: Delhi and listed States/UTs - 24th day of the month after the quarter - https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+      "confidence": "high"
+    },
+    {
+      "id": "DL-05",
+      "category": "filing_deadlines",
+      "tool": "gst_filing_deadlines",
+      "expected": {
+        "gstr3b_due": "2026-07-22"
+      },
+      "tool_output": {
+        "gstr3b_due": "2026-07-22"
+      },
+      "pass": true,
+      "source": "CGST Rules r.61(1)(ii) Table Sl.1: Kerala is in the 22nd-day group - https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+      "confidence": "high"
+    },
+    {
+      "id": "DL-06",
+      "category": "filing_deadlines",
+      "tool": "gst_filing_deadlines",
+      "expected": {
+        "iff_due": "2026-05-13"
+      },
+      "tool_output": {
+        "iff_due": "2026-05-13"
+      },
+      "pass": true,
+      "source": "CGST Rules r.59(2): IFF for the first and second months of a quarter, from the 1st to the 13th of the following month - https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule59_v1.00.html ; https://gstcouncil.gov.in/sites/default/files/2024-05/notfctn-82-central-tax-english-2020.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "DL-07",
+      "category": "filing_deadlines",
+      "tool": "gst_filing_deadlines",
+      "expected": {
+        "iff_available": false
+      },
+      "tool_output": {
+        "iff_available": false
+      },
+      "pass": true,
+      "source": "CGST Rules r.59(2): IFF is available only for the first and second months of a quarter - https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule59_v1.00.html",
+      "confidence": "high"
+    },
+    {
+      "id": "G1-01",
+      "category": "gstr1_tables",
+      "tool": "gstr1_summary_tool",
+      "expected": {
+        "b2c_large_reported": true
+      },
+      "tool_output": {
+        "b2c_large_reported": true
+      },
+      "pass": true,
+      "source": "Notification 12/2024-CT (10 Jul 2024) lowered the invoice-wise reporting threshold for inter-State supplies to unregistered persons from Rs 2.5 lakh to Rs 1 lakh - https://www.taxscan.in/gstn-issues-advisory-on-reporting-supplies-to-unregistered-dealers-in-gstr-1-gstr-5/433979",
+      "confidence": "medium"
+    },
+    {
+      "id": "ITR-01",
+      "category": "itr_presumptive_tax",
+      "tool": "presumptive_check",
+      "expected": {
+        "eligible": true
+      },
+      "tool_output": {
+        "eligible": true
+      },
+      "pass": true,
+      "source": "Income-tax Act s.44AD: limit Rs 3 crore if cash receipts do not exceed 5% of total, else Rs 2 crore - https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/itr-4",
+      "confidence": "high"
+    },
+    {
+      "id": "ITR-02",
+      "category": "itr_presumptive_tax",
+      "tool": "presumptive_check",
+      "expected": {
+        "eligible": false
+      },
+      "tool_output": {
+        "eligible": false
+      },
+      "pass": true,
+      "source": "Income-tax Act s.44AD: the Rs 3 crore limit needs cash receipts of 5% or less; otherwise the limit is Rs 2 crore - https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/itr-4",
+      "confidence": "high"
+    },
+    {
+      "id": "ITR-03",
+      "category": "itr_presumptive_tax",
+      "tool": "presumptive_check",
+      "expected": {
+        "eligible": true
+      },
+      "tool_output": {
+        "eligible": true
+      },
+      "pass": true,
+      "source": "Income-tax Act s.44ADA: limit Rs 75 lakh if cash receipts do not exceed 5%, else Rs 50 lakh - https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/itr-4",
+      "confidence": "high"
+    },
+    {
+      "id": "ITR-04",
+      "category": "itr_presumptive_tax",
+      "tool": "itr_advance_tax_estimate_tool",
+      "expected": {
+        "annual_tax": 150800.0
+      },
+      "tool_output": {
+        "annual_tax": 150800.0
+      },
+      "pass": true,
+      "source": "New-regime slabs for FY 2025-26 (nil to 4L, 5%, 10%, 15%, 20%, 25%, 30%), standard deduction Rs 75,000, cess 4% - https://cleartax.in/s/hi/income-tax-slabs ; https://www.business-standard.com/amp/finance/personal-finance/new-rules-from-april-1-zero-tax-on-income-up-to-rs-12l-see-all-changes-125040200823_1.html",
+      "confidence": "high"
+    },
+    {
+      "id": "ITR-05",
+      "category": "itr_presumptive_tax",
+      "tool": "itr_advance_tax_estimate_tool",
+      "expected": {
+        "annual_tax": 5200.0
+      },
+      "tool_output": {
+        "annual_tax": 5200.0
+      },
+      "pass": true,
+      "source": "Section 87A rebate with marginal relief: tax above Rs 12 lakh income is capped at the excess over Rs 12 lakh (here taxable Rs 12,05,000 so tax Rs 5,000 + 4% cess) - https://www.allindiaitr.com/marginal-relief-income-above-12-lakh",
+      "confidence": "high"
+    },
+    {
+      "id": "SCOMP-01",
+      "category": "services_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_limit": 5000000
+      },
+      "tool_output": {
+        "composition_limit": 5000000
+      },
+      "pass": true,
+      "source": "Notification 2/2019-Central Tax (Rate), 7 Mar 2019, w.e.f. 1 Apr 2019 - https://gstcouncil.gov.in/sites/default/files/2024-05/download_2024-05-17t161230.215.pdf (entry: first supplies up to Rs 50 lakh; condition 1(i): preceding-FY turnover Rs 50 lakh or below); CGST Act s.10(1) second proviso and s.10(2A) - https://www.cggst.com/uploads/document/1752317902-section-10.pdf (s.10(1) closed to a pure service provider beyond the 10%/Rs 5 lakh allowance)",
+      "confidence": "high"
+    },
+    {
+      "id": "SCOMP-02",
+      "category": "services_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_rate_total": 6.0
+      },
+      "tool_output": {
+        "composition_rate_total": 6.0
+      },
+      "pass": true,
+      "source": "Notification 2/2019-Central Tax (Rate), 7 Mar 2019, w.e.f. 1 Apr 2019 - https://gstcouncil.gov.in/sites/default/files/2024-05/download_2024-05-17t161230.215.pdf (column 2: central tax 3%; the State notification under the SGST Act levies the matching 3%)",
+      "confidence": "high"
+    },
+    {
+      "id": "SCOMP-03",
+      "category": "services_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_eligible": false
+      },
+      "tool_output": {
+        "composition_eligible": false
+      },
+      "pass": true,
+      "source": "Notification 2/2019-Central Tax (Rate), 7 Mar 2019, w.e.f. 1 Apr 2019 - https://gstcouncil.gov.in/sites/default/files/2024-05/download_2024-05-17t161230.215.pdf (condition 1(i): preceding-FY turnover Rs 50 lakh or below); CGST Act s.10(1) second proviso and s.10(2A) - https://www.cggst.com/uploads/document/1752317902-section-10.pdf (the Rs 1.5 crore limit is for s.10(1), which a pure service provider cannot use)",
+      "confidence": "high"
+    },
+    {
+      "id": "SCOMP-04",
+      "category": "services_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_eligible": false
+      },
+      "tool_output": {
+        "composition_eligible": false
+      },
+      "pass": true,
+      "source": "Notification 2/2019-Central Tax (Rate), 7 Mar 2019, w.e.f. 1 Apr 2019 - https://gstcouncil.gov.in/sites/default/files/2024-05/download_2024-05-17t161230.215.pdf (condition 1(iv): not engaged in any inter-State outward supply); CGST Act s.10(2A)(b)",
+      "confidence": "high"
+    },
+    {
+      "id": "SCOMP-05",
+      "category": "services_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_eligible": false
+      },
+      "tool_output": {
+        "composition_eligible": false
+      },
+      "pass": true,
+      "source": "Notification 2/2019-Central Tax (Rate), 7 Mar 2019, w.e.f. 1 Apr 2019 - https://gstcouncil.gov.in/sites/default/files/2024-05/download_2024-05-17t161230.215.pdf (condition 1(vi): no supply through an e-commerce operator who collects TCS under s.52); CGST Act s.10(2A)(c)",
+      "confidence": "high"
+    },
+    {
+      "id": "SCOMP-06",
+      "category": "services_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_eligible": false
+      },
+      "tool_output": {
+        "composition_eligible": false
+      },
+      "pass": true,
+      "source": "Notification 2/2019-Central Tax (Rate), 7 Mar 2019, w.e.f. 1 Apr 2019 - https://gstcouncil.gov.in/sites/default/files/2024-05/download_2024-05-17t161230.215.pdf (condition 1(vii) and Annexure S.No.2: pan masala 2106 90 20 is excluded); services above the s.10(1) allowance put this person under s.10(2A) - CGST Act s.10(1) second proviso and s.10(2A) - https://www.cggst.com/uploads/document/1752317902-section-10.pdf",
+      "confidence": "high"
+    },
+    {
+      "id": "SCOMP-07",
+      "category": "services_composition",
+      "tool": "gst_applicability",
+      "expected": {
+        "composition_path": "s10_1"
+      },
+      "tool_output": {
+        "composition_path": "s10_1"
+      },
+      "pass": true,
+      "source": "CGST Act s.10(1) second proviso and s.10(2A) - https://www.cggst.com/uploads/document/1752317902-section-10.pdf (second proviso: services up to the higher of 10% of turnover or Rs 5 lakh are allowed under s.10(1); here Rs 4.5 lakh is within Rs 5 lakh, so s.10(2A), which is only for persons not eligible under s.10(1), does not apply)",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{"id": "REG-01", "answer_text": "Yes. A goods-only supplier in a non-special-category state must register once aggregate turnover exceeds Rs 40 lakh, and Rs 42 lakh is above that."}
+{"id": "REG-02", "answer_text": "No. A goods-only supplier in Telangana needs to register only above Rs 40 lakh, and Rs 30 lakh is below that."}
+{"id": "REG-03", "answer_text": "No. Manipur is a special-category state where the goods threshold is Rs 20 lakh, and Rs 15 lakh is below it."}
+{"id": "REG-04", "answer_text": "No. Assam is not a special-category state, so the Rs 40 lakh goods threshold applies and Rs 30 lakh is below it."}
+{"id": "REG-05", "answer_text": "Yes. Uttarakhand is a special-category state where the services threshold is Rs 10 lakh, and Rs 15 lakh is above it."}
+{"id": "REG-06", "answer_text": "Yes. Inter-State supplies of goods require GST registration regardless of turnover."}
+{"id": "REG-07", "answer_text": "Yes. The composition limit for goods traders is Rs 1.5 crore, and Rs 1.2 crore is within it."}
+{"id": "REG-08", "answer_text": "No. Sikkim is a special-category state where the composition limit is Rs 75 lakh, and Rs 90 lakh exceeds it."}
+{"id": "EINV-01", "answer_text": "Yes. E-invoicing is mandatory for businesses with aggregate turnover above Rs 5 crore, and Rs 5.2 crore is above that."}
+{"id": "EINV-02", "answer_text": "No. The e-invoicing threshold is turnover exceeding Rs 5 crore, and exactly Rs 5 crore does not exceed it."}
+{"id": "EINV-03", "answer_text": "6 digits. Businesses with turnover above Rs 5 crore must show six-digit HSN codes on B2B invoices."}
+{"id": "RATE-01", "answer_text": "28%. Portland cement was taxed at 28% until 22 September 2025."}
+{"id": "RATE-02", "answer_text": "18%. From 22 September 2025, Portland cement was cut to 18%."}
+{"id": "RATE-03", "answer_text": "5%. Bar toilet soap moved from 18% to 5% from 22 September 2025."}
+{"id": "RATE-04", "answer_text": "5%. Pre-packaged and labelled rice attracts 5% GST."}
+{"id": "RATE-05", "answer_text": "5%. Preserved vegetables not preserved in vinegar and not frozen were cut to 5% from 22 September 2025."}
+{"id": "RATE-06", "answer_text": "40%. Large petrol SUVs above 4 metres or with engines over 1,500 cc moved to 40% GST from 22 September 2025, with the compensation cess removed."}
+{"id": "RATE-07", "answer_text": "28%. Filter cigarettes remain at 28% GST."}
+{"id": "LIAB-01", "answer_text": "Rs 9,000. An intra-State supply at 18% splits into CGST of 9 percent, which is Rs 9,000 on Rs 1,00,000."}
+{"id": "LIAB-02", "answer_text": "Rs 18,000. An inter-State supply at 18% is charged entirely as IGST, which is Rs 18,000 on Rs 1,00,000."}
+{"id": "LIAB-03", "answer_text": "Rs 43,200. The taxable value is 5 laptops at Rs 50,000 less the Rs 10,000 trade discount, which is Rs 2,40,000, and IGST at 18 percent on that is Rs 43,200."}
+{"id": "LIAB-04", "answer_text": "Rs 28,000. Motorcycles up to 350 cc were taxed at 28% in June 2025 with no compensation cess, so the total on Rs 1,00,000 is Rs 28,000."}
+{"id": "RCM-01", "answer_text": "Rs 18,000. Legal services from an individual advocate to a business are under reverse charge at 18 percent, paid as CGST of Rs 9,000 and SGST of Rs 9,000."}
+{"id": "RCM-02", "answer_text": "Rs 2,500. Goods transport services under reverse charge at 5 percent on Rs 50,000 give Rs 2,500 payable by the factory."}
+{"id": "ITC-01", "answer_text": "Rs 0. Section 17(5) blocks input tax credit on passenger cars seating 13 or fewer unless they are used for passenger transport, driving training or resale of such vehicles, so none can be claimed."}
+{"id": "ITC-02", "answer_text": "Rs 2,80,000. A goods carrier truck used to carry goods qualifies for full input tax credit."}
+{"id": "ITC-03", "answer_text": "Rs 0. Section 17(5) blocks input tax credit on food and beverages for staff because providing them is not obligatory under any law."}
+{"id": "DL-01", "answer_text": "20 November 2026."}
+{"id": "DL-02", "answer_text": "13 July 2026."}
+{"id": "DL-03", "answer_text": "24 July 2026."}
+{"id": "DL-04", "answer_text": "22 July 2026."}
+{"id": "DL-05", "answer_text": "24 July 2026."}
+{"id": "DL-06", "answer_text": "13 May 2026."}
+{"id": "DL-07", "answer_text": "No. The Invoice Furnishing Facility is available only for the first two months of a quarter."}
+{"id": "G1-01", "answer_text": "No. The invoice is Rs 1,77,000 including tax, below the Rs 2.5 lakh threshold for B2C large, so it goes in B2C others rather than Table 5."}
+{"id": "ITR-01", "answer_text": "Yes. Under section 44AD a trading business with turnover up to Rs 3 crore can opt in when at least 95% of receipts are digital, which applies here."}
+{"id": "ITR-02", "answer_text": "No. With 20% of receipts in cash, section 44AD is unavailable at Rs 2.5 crore turnover, because the Rs 3 crore limit needs cash at or below 5% and the higher cash case is capped at Rs 2 crore."}
+{"id": "ITR-03", "answer_text": "Yes. Under section 44ADA a professional with gross receipts up to Rs 75 lakh can opt in when at least 95% of receipts are digital, and Rs 60 lakh with 98% digital qualifies."}
+{"id": "ITR-04", "answer_text": "Rs 1,50,800. Taxable income of Rs 17,25,000 after the standard deduction gives tax of Rs 1,45,000 plus 4% cess of Rs 5,800."}
+{"id": "ITR-05", "answer_text": "Rs 5,200. Taxable income of Rs 12,05,000 gives tax of Rs 60,750 before rebate, but marginal relief caps it at the Rs 5,000 by which income exceeds Rs 12 lakh, plus 4% cess of Rs 200."}

@@ -1,0 +1,16 @@
+{
+  "irn": "e0f5c1a9b7d3e2f84a6c5b0d9e1f2a3c4b5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f",
+  "irp": "nic",
+  "doc_type": "INV",
+  "doc_number": "INV-2026-052",
+  "doc_date": "2026-11-05",
+  "seller_gstin": "27ABCDE1234F1Z0",
+  "seller_name": "Priya's Homemade Pickles",
+  "buyer_gstin": "07AAJCS5555P1ZM",
+  "buyer_name": "Meridian Legal LLP",
+  "place_of_supply": "07",
+  "items": [
+    {"hsn_sac": "2005", "description": "Festive gift hampers (assorted pickles)", "qty": 400, "unit_price": 1150, "taxable_value": 460000, "rate_pct": 5, "cgst": 0, "sgst": 0, "igst": 23000, "cess": 0}
+  ],
+  "total_invoice_value": 480000
+}

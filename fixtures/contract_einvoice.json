@@ -1,0 +1,16 @@
+{
+  "irn": "f7a2c8e1b4d9f0a3c6e5b8d1a4f7c0e3b6d9a2c5f8e1b4d7a0c3f6e9b2d5a8c1",
+  "irp": "nic",
+  "doc_type": "INV",
+  "doc_number": "DAF/2026/3417",
+  "doc_date": "2026-11-05",
+  "seller_gstin": "27AABCD1111E1ZG",
+  "seller_name": "Deshmukh Agro Foods Pvt Ltd",
+  "buyer_gstin": "07AAJCS5555P1ZK",
+  "buyer_name": "Meridian Legal LLP",
+  "place_of_supply": "07",
+  "items": [
+    {"hsn_sac": "200599", "description": "Festive gift hampers (assorted pickles)", "qty": 400, "unit_price": 1150, "taxable_value": 460000, "rate_pct": 5, "cgst": 0, "sgst": 0, "igst": 23000, "cess": 0}
+  ],
+  "total_invoice_value": 483000
+}

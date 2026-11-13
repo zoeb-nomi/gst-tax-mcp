@@ -1,0 +1,408 @@
+{
+  "summary": {
+    "correct": 33,
+    "total": 40,
+    "answered": 40,
+    "score": 0.825,
+    "by_category": {
+      "einvoice_hsn": {
+        "correct": 3,
+        "total": 3
+      },
+      "filing_deadlines": {
+        "correct": 4,
+        "total": 7
+      },
+      "gstr1_tables": {
+        "correct": 0,
+        "total": 1
+      },
+      "itc_blocked": {
+        "correct": 3,
+        "total": 3
+      },
+      "itr_presumptive_tax": {
+        "correct": 5,
+        "total": 5
+      },
+      "rate_lookup": {
+        "correct": 6,
+        "total": 7
+      },
+      "registration_composition": {
+        "correct": 6,
+        "total": 8
+      },
+      "reverse_charge": {
+        "correct": 2,
+        "total": 2
+      },
+      "tax_split_liability": {
+        "correct": 4,
+        "total": 4
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "REG-01",
+      "category": "registration_composition",
+      "answer_type": "bool",
+      "expected": true,
+      "extracted": true,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "REG-02",
+      "category": "registration_composition",
+      "answer_type": "bool",
+      "expected": true,
+      "extracted": false,
+      "answered": true,
+      "correct": false
+    },
+    {
+      "id": "REG-03",
+      "category": "registration_composition",
+      "answer_type": "bool",
+      "expected": false,
+      "extracted": false,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "REG-04",
+      "category": "registration_composition",
+      "answer_type": "bool",
+      "expected": false,
+      "extracted": false,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "REG-05",
+      "category": "registration_composition",
+      "answer_type": "bool",
+      "expected": false,
+      "extracted": true,
+      "answered": true,
+      "correct": false
+    },
+    {
+      "id": "REG-06",
+      "category": "registration_composition",
+      "answer_type": "bool",
+      "expected": true,
+      "extracted": true,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "REG-07",
+      "category": "registration_composition",
+      "answer_type": "bool",
+      "expected": true,
+      "extracted": true,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "REG-08",
+      "category": "registration_composition",
+      "answer_type": "bool",
+      "expected": false,
+      "extracted": false,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "EINV-01",
+      "category": "einvoice_hsn",
+      "answer_type": "bool",
+      "expected": true,
+      "extracted": true,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "EINV-02",
+      "category": "einvoice_hsn",
+      "answer_type": "bool",
+      "expected": false,
+      "extracted": false,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "EINV-03",
+      "category": "einvoice_hsn",
+      "answer_type": "int",
+      "expected": 6,
+      "extracted": 6,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RATE-01",
+      "category": "rate_lookup",
+      "answer_type": "pct",
+      "expected": 28.0,
+      "extracted": 28.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RATE-02",
+      "category": "rate_lookup",
+      "answer_type": "pct",
+      "expected": 18.0,
+      "extracted": 18.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RATE-03",
+      "category": "rate_lookup",
+      "answer_type": "pct",
+      "expected": 5.0,
+      "extracted": 5.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RATE-04",
+      "category": "rate_lookup",
+      "answer_type": "pct",
+      "expected": 5.0,
+      "extracted": 5.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RATE-05",
+      "category": "rate_lookup",
+      "answer_type": "pct",
+      "expected": 5.0,
+      "extracted": 5.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RATE-06",
+      "category": "rate_lookup",
+      "answer_type": "pct",
+      "expected": 40.0,
+      "extracted": 40.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RATE-07",
+      "category": "rate_lookup",
+      "answer_type": "pct",
+      "expected": 40.0,
+      "extracted": 28.0,
+      "answered": true,
+      "correct": false
+    },
+    {
+      "id": "LIAB-01",
+      "category": "tax_split_liability",
+      "answer_type": "rupees",
+      "expected": 9000.0,
+      "extracted": 9000.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "LIAB-02",
+      "category": "tax_split_liability",
+      "answer_type": "rupees",
+      "expected": 18000.0,
+      "extracted": 18000.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "LIAB-03",
+      "category": "tax_split_liability",
+      "answer_type": "rupees",
+      "expected": 43200.0,
+      "extracted": 43200.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "LIAB-04",
+      "category": "tax_split_liability",
+      "answer_type": "rupees",
+      "expected": 28000.0,
+      "extracted": 28000.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RCM-01",
+      "category": "reverse_charge",
+      "answer_type": "rupees",
+      "expected": 18000.0,
+      "extracted": 18000.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "RCM-02",
+      "category": "reverse_charge",
+      "answer_type": "rupees",
+      "expected": 2500.0,
+      "extracted": 2500.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "ITC-01",
+      "category": "itc_blocked",
+      "answer_type": "rupees",
+      "expected": 0.0,
+      "extracted": 0.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "ITC-02",
+      "category": "itc_blocked",
+      "answer_type": "rupees",
+      "expected": 280000.0,
+      "extracted": 280000.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "ITC-03",
+      "category": "itc_blocked",
+      "answer_type": "rupees",
+      "expected": 0.0,
+      "extracted": 0.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "DL-01",
+      "category": "filing_deadlines",
+      "answer_type": "date",
+      "expected": "2026-11-20",
+      "extracted": "2026-11-20",
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "DL-02",
+      "category": "filing_deadlines",
+      "answer_type": "date",
+      "expected": "2026-07-13",
+      "extracted": "2026-07-13",
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "DL-03",
+      "category": "filing_deadlines",
+      "answer_type": "date",
+      "expected": "2026-07-22",
+      "extracted": "2026-07-24",
+      "answered": true,
+      "correct": false
+    },
+    {
+      "id": "DL-04",
+      "category": "filing_deadlines",
+      "answer_type": "date",
+      "expected": "2026-07-24",
+      "extracted": "2026-07-22",
+      "answered": true,
+      "correct": false
+    },
+    {
+      "id": "DL-05",
+      "category": "filing_deadlines",
+      "answer_type": "date",
+      "expected": "2026-07-22",
+      "extracted": "2026-07-24",
+      "answered": true,
+      "correct": false
+    },
+    {
+      "id": "DL-06",
+      "category": "filing_deadlines",
+      "answer_type": "date",
+      "expected": "2026-05-13",
+      "extracted": "2026-05-13",
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "DL-07",
+      "category": "filing_deadlines",
+      "answer_type": "bool",
+      "expected": false,
+      "extracted": false,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "G1-01",
+      "category": "gstr1_tables",
+      "answer_type": "bool",
+      "expected": true,
+      "extracted": false,
+      "answered": true,
+      "correct": false
+    },
+    {
+      "id": "ITR-01",
+      "category": "itr_presumptive_tax",
+      "answer_type": "bool",
+      "expected": true,
+      "extracted": true,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "ITR-02",
+      "category": "itr_presumptive_tax",
+      "answer_type": "bool",
+      "expected": false,
+      "extracted": false,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "ITR-03",
+      "category": "itr_presumptive_tax",
+      "answer_type": "bool",
+      "expected": true,
+      "extracted": true,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "ITR-04",
+      "category": "itr_presumptive_tax",
+      "answer_type": "rupees",
+      "expected": 150800.0,
+      "extracted": 150800.0,
+      "answered": true,
+      "correct": true
+    },
+    {
+      "id": "ITR-05",
+      "category": "itr_presumptive_tax",
+      "answer_type": "rupees",
+      "expected": 5200.0,
+      "extracted": 5200.0,
+      "answered": true,
+      "correct": true
+    }
+  ]
+}

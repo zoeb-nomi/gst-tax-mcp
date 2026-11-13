@@ -1,0 +1,14 @@
+{
+  "business_name": "Priya's Homemade Pickles",
+  "constitution": "proprietorship",
+  "state_code": "27",
+  "state": "Maharashtra",
+  "aggregate_turnover_prior_fy": 4200000,
+  "supplies_goods": true,
+  "supplies_services": false,
+  "inter_state_supply": true,
+  "sells_via_ecommerce": false,
+  "casual_taxable_person": false,
+  "composition_scheme_interest": true,
+  "supplier_gstin": "27ABCDE1234F1Z0"
+}

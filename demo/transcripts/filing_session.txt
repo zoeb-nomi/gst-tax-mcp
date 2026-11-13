@@ -1,0 +1,228 @@
+# connected to gst-tax-mcp over stdio, 9 tools:
+# gst_applicability, classify_hsn_sac, calc_gst_liability, reconcile_itc_tool, gst_filing_deadlines, gstr1_summary_tool, validate_einvoice_tool, itr_turnover_reconcile_tool, itr_advance_tax_estimate_tool
+
+== Step 0 · the client ==
+# Priya's Homemade Pickles, proprietorship in Maharashtra
+# prior-FY turnover Rs 4,200,000.00, goods, sells to Karnataka (inter-state)
+
+== Step 1 · is GST registration required? ==
+$ gst_applicability {"profile": "~/fixtures/priya_pickles/profile.json"}
+{
+  "needs_registration": true,
+  "composition_eligible": false,
+  "recommended_filer_type": "qrdp",
+  "reasons": [
+    "Inter-state supply of goods makes registration compulsory at any turnover",
+    "Goods turnover Rs 4,200,000 exceeds the normal-category threshold of Rs 4,000,000",
+    "State 27 is a normal-category state: goods threshold Rs 4,000,000, services threshold Rs 2,000,000"
+  ],
+  "composition_notes": [
+    "Composition turnover limit: Rs 15,000,000 (normal category)",
+    "Composition suppliers cannot make inter-state supply of goods"
+  ]
+}
+# Registration: required; composition scheme: not available (inter-state goods supply blocks it); filer type: qrdp
+
+== Step 2 · when must this quarter be filed? ==
+$ gst_filing_deadlines {"period": "2026-Q2", "filer_type": "qrdp", "state_code": "27"}
+{
+  "deadlines": [
+    {
+      "form": "GSTR-1",
+      "period": "2026-Q2",
+      "due_date": "2026-10-13",
+      "rule": "Outward supplies statement, monthly filer",
+      "override": null
+    },
+    {
+      "form": "GSTR-3B",
+      "period": "2026-Q2",
+      "due_date": "2026-10-22",
+      "rule": "Summary return, monthly filer",
+      "override": null
+    },
+    {
+      "form": "PMT-06",
+      "period": "2026-Q2",
+      "due_date": "2026-10-25",
+      "rule": "Challan-cum-statement (tax payment), QRDP",
+      "override": null
+    }
+  ]
+}
+# Q2 (Jul-Sep 2026): GSTR-1 by 13 Oct 2026, GSTR-3B by 22 Oct 2026 (Maharashtra QRDP category X), tax challan by 25 Oct 2026
+
+== Step 3 · reverse-charge freight (GTA) ==
+$ calc_gst_liability {"invoice": "{\"lines\": [{\"description\": \"Freight (GTA) under reverse charge\", \"hsn_sac\": \"996411\", \"quantity\": 1, \"unit_price\": 8000, \"place_of_supply_state\": \"27\", \"supplier_state\": \"27\", \"reverse_charge\": true}]}"}
+{
+  "lines": [
+    {
+      "line": "Freight (GTA) under reverse charge",
+      "hsn_sac": "996411",
+      "rate_row": "Goods transport (GTA, RCM for most recipients)",
+      "effective_from": "2017-07-01",
+      "taxable_value": 8000.0,
+      "rate_pct": 5.0,
+      "cess_pct": 0.0,
+      "supply_type": "intra-state (CGST+SGST)",
+      "reverse_charge": true,
+      "note": "Reverse charge: recipient pays GST directly; no tax on the invoice",
+      "tax_on_invoice": 0.0,
+      "rcm_liability": 400.0
+    }
+  ],
+  "totals": {
+    "taxable_value": 8000.0,
+    "cgst": 0.0,
+    "sgst": 0.0,
+    "igst": 0.0,
+    "cess": 0.0,
+    "total_tax": 0.0,
+    "rcm_liability": 400.0
+  }
+}
+# Rs 400 self-assessed under reverse charge - paid in cash, then claimed as ITC in the same return (net nil, but it must be reported)
+
+== Step 4 · ITC: books vs GSTR-2B ==
+$ reconcile_itc_tool {"books": "~/fixtures/priya_pickles/books_purchases_q2_2026.json", "gstr2b": "~/fixtures/priya_pickles/gstr2b_q2_2026.json"}
+{
+  "summary": {
+    "books_itc_total": 7260.0,
+    "gstr2b_itc_total": 5340.0,
+    "matched_count": 2,
+    "mismatched_count": 1,
+    "only_in_books_count": 1,
+    "only_in_2b_count": 0,
+    "claimable_itc": 1620.0,
+    "blocked_itc": 1080.0,
+    "recommendation": "Resolve mismatches before filing GSTR-3B: claim only the matched plus in-2B amounts; follow up with suppliers on missing invoices"
+  }
+}
+# Claim only Rs 1,620 now. Rs 1,080 catering credit is blocked under section 17(5)(b); Rs 2,160 invoice is missing from 2B - chase the supplier; Rs 400 difference on the jar vendor needs reconciliation
+
+== Step 5 · GSTR-1 summary ==
+$ gstr1_summary_tool {"invoices": "~/fixtures/priya_pickles/outward_invoices_q2_2026.json"}
+{
+  "tables": {
+    "12 HSN summary": {
+      "count": 0,
+      "taxable_value": 715600.0,
+      "cgst": 2752.5,
+      "sgst": 2752.5,
+      "igst": 21275.0,
+      "cess": 0.0
+    },
+    "4A/4B/4C/6B B2B": {
+      "count": 3,
+      "taxable_value": 160500.0,
+      "cgst": 2137.5,
+      "sgst": 2137.5,
+      "igst": 3750.0,
+      "cess": 0.0
+    },
+    "5A B2C large (inter-state > 2.5L)": {
+      "count": 1,
+      "taxable_value": 320000.0,
+      "cgst": 0.0,
+      "sgst": 0.0,
+      "igst": 16000.0,
+      "cess": 0.0
+    },
+    "6A exports": {
+      "count": 1,
+      "taxable_value": 180000.0,
+      "cgst": 0.0,
+      "sgst": 0.0,
+      "igst": 0.0,
+      "cess": 0.0
+    },
+    "6B/6C credit/debit notes (registered)": {
+      "count": 1,
+      "taxable_value": -8000.0,
+      "cgst": 0.0,
+      "sgst": 0.0,
+      "igst": -400.0,
+      "cess": 0.0
+    },
+    "7 B2C others": {
+      "count": 3,
+      "taxable_value": 47100.0,
+      "cgst": 615.0,
+      "sgst": 615.0,
+      "igst": 1125.0,
+      "cess": 0.0
+    }
+  },
+  "totals_excl_hsn": {
+    "count": 9,
+    "taxable_value": 699600.0,
+    "cgst": 2752.5,
+    "sgst": 2752.5,
+    "igst": 20475.0,
+    "cess": 0.0
+  }
+}
+# Rs 6,99,600 taxable, Rs 25,980 tax net of the credit note. B2C-large (5A) catches the Rs 3.2 lakh Bengaluru order that would otherwise hide in B2C-small
+
+== Step 6 · e-invoice check on the Meridian order ==
+$ validate_einvoice_tool {"einvoice": "~/fixtures/priya_pickles/einvoice_meridian.json", "supplier_ato": 4200000}
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "hsn_digits_required": 4
+}
+# E-invoicing is not mandatory below Rs 5 crore turnover, but the buyer's AP team asked for an e-invoice-ready bill: valid
+
+== Step 7 · ITR crossover ==
+$ itr_turnover_reconcile_tool {"gstr3b_turnover": 4180000, "itr_gross_receipts": 4410000, "itr_presumptive_scheme": "44AD"}
+{
+  "difference": 230000.0,
+  "difference_pct": 5.5,
+  "in_sync": false,
+  "flags": [
+    "Turnover differs by 5.5% (Rs 230,000); the ITC reconciliation statement expects ITR >= GSTR turnover and flags variances beyond ~5%",
+    "ITR turnover higher than GST turnover: GST-registered supplies may be missing from returns, or exempt/nil-rate receipts explain it"
+  ]
+}
+# ITR shows Rs 2,30,000 (5.5%) more than GST turnover - above the 5% band the department's comparators use; explain or amend before the notice
+
+== Step 8 · advance-tax estimate for next year ==
+$ itr_advance_tax_estimate_tool {"annual_income_projection": 1650000, "regime": "new"}
+{
+  "annual_tax": 120900.0,
+  "instalments": [
+    {
+      "instalment": "by 15 June",
+      "cumulative_share": 0.15,
+      "cumulative_amount": 18135.0
+    },
+    {
+      "instalment": "by 15 September",
+      "cumulative_share": 0.45,
+      "cumulative_amount": 54405.0
+    },
+    {
+      "instalment": "by 15 December",
+      "cumulative_share": 0.75,
+      "cumulative_amount": 90675.0
+    },
+    {
+      "instalment": "by 15 March",
+      "cumulative_share": 1.0,
+      "cumulative_amount": 120900.0
+    }
+  ],
+  "regime_comparison": {
+    "new_regime_total_tax": 120900.0,
+    "old_regime_total_tax": 304200.0,
+    "recommended": "new"
+  }
+}
+# Projected Rs 16.5 lakh income: Rs 1,20,900 tax, four instalments - 15 June / 15 Sep / 15 Dec / 15 Mar
+
+== Filing pack ==
+# GSTR-1: Rs 6,99,600 taxable, tax Rs 25,980 (net of credit note)
+# GSTR-3B: outward tax Rs 25,980 + RCM Rs 400; ITC claim Rs 1,620 now
+# Cash to pay by 25 Oct 2026: Rs 24,760 (liability less ITC, incl. RCM)
+# Flags: blocked ITC 1,080; mismatch 400; missing-in-2B 2,160; ITR variance 5.5%
